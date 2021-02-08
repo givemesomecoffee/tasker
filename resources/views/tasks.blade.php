@@ -52,12 +52,13 @@
                             <thead>
                             <th>Task</th>
                             <th>&nbsp;</th>
+                            <th>&nbsp;</th>
                             </thead>
                             <tbody>
                             @foreach ($tasks as $task)
                                 <tr>
                                     <td class="table-text"><div>{{ $task->name }}</div></td>
-
+                                    <td class="table-text"><div>{{ $task->description }}</div></td>
                                     <!-- Task Delete Button -->
                                     <td>
                                         <form action="{{ url('task/'.$task->id) }}" method="POST">
