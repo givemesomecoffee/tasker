@@ -70,6 +70,16 @@
                                             </button>
                                         </form>
                                     </td>
+                                    <td>
+                                        <a href="{{ url('task/'.$task->id) }}">
+                                           {{-- {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}--}}
+
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="fa fa-btn fa-trash"></i>Edit
+                                            </button>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

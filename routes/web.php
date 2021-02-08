@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Task;
 use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,10 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//TODO: убрать очистку кеша после разработки базы
+Artisan::call('view:clear');
+
+
 
 Route::get('/', function () {
     $tasks = Task::orderBy('created_at', 'ASC')->get();
@@ -21,7 +26,15 @@ Route::get('/', function () {
         'tasks' => $tasks
     ]);
 });
+Route::get('/task/{id}', function ($id) {
 
+
+
+    $task = Task::find($id);
+    return view('task', [
+        'task' => $task
+    ]);
+});
 /**
  * Добавить новую задачу
  */
